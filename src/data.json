@@ -1,35 +1,40 @@
 [
     {
         "name": "course1",
-        "grade": [
+        "grades": [
             1
-        ]
+        ],
+        "gpa": 5
     },
     {
         "name": "course2",
-        "grade": [
+        "grades": [
             2
-        ]
+        ],
+        "gpa": 4
     },
     {
         "name": "course3",
-        "grade": [
+        "grades": [
             3
-        ]
+        ],
+        "gpa": 4.5
     },
     {
         "name": "course4",
-        "grade": [
+        "grades": [
             1,
             2,
             3
-        ]
+        ],
+        "gpa": 4.25
     },
     {
         "name": "course5",
-        "grade": [
+        "grades": [
             2,
             3
-        ]
+        ],
+        "gpa": 5
     }
 ]

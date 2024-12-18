@@ -13,7 +13,7 @@ function App() {
     const [gpa, setGpa] = useState<number>(0);
     const [courseList, setCourseList] = useState<Array<Course>>(courseData.filter(c => c.grades.includes(1)));
     const [selectedCourses, setSelectedCourses] = useState<Array<SelectedCourse>>([]);
-
+grade
     function onGradeChange(event: React.ChangeEvent<HTMLSelectElement>) {
         // when grade changes, we'll just keep the courses that are offered in this grade and filter out the others
         let grade = parseInt(event.target.value);

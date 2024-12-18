@@ -3,13 +3,14 @@ import SelectedCourse from "../interfaces/SelectedCourse";
 // one strip of a course
 
 type SelectedCourseCardProps = {
-    course: SelectedCourse
+    course: SelectedCourse,
+    onDelete: (course: SelectedCourse) => void;
 }
 
-function SelectedCourseCard({ course }: SelectedCourseCardProps) {
+function SelectedCourseCard({ course, onDelete }: SelectedCourseCardProps) {
     return (
         <div className="chosen-course">
-            <button>X</button>
+            <button onClick={() => onDelete(course)}>X</button>
             <p>{course.name}</p>
             <select defaultValue={course.letterGrade}>
                 <option>A</option>

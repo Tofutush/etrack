@@ -2,7 +2,10 @@
 
 function SearchBar() {
     return (
-        <input type="text" placeholder="搜索课程" className="graybox" />
+        <div id="add-course">
+            <div>添加课程</div>
+            <input type="text" placeholder="搜索课程" className="graybox" />
+        </div>
     )
 }
 

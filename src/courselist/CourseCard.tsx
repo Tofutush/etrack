@@ -13,6 +13,7 @@ function CourseCard({ course, children }: CourseCardProps) {
         <div className="course">
             <h1>{course.name}</h1>
             <div>{gradesElt}</div>
+            <div>{course.gpa}</div>
             {children}
         </div>
     )

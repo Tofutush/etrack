@@ -6,7 +6,7 @@ type GradeSelectorProps = {
 
 function GradeSelector({ onChange }: GradeSelectorProps) {
     return (
-        <div className="graybox">
+        <div className="graybox grade-selector">
             <div>年级</div>
             <select name="grade" defaultValue="1" onChange={onChange}>
                 <option value="1">高一</option>

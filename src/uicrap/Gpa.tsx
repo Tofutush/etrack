@@ -9,7 +9,7 @@ function Gpa({ value }: GpaProps) {
     return (
         <div className="graybox">
             <div>加权绩点</div>
-            <div>{gpaStr}</div>
+            <h1>{gpaStr}</h1>
         </div>
     )
 }

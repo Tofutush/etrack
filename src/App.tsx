@@ -6,6 +6,7 @@ import SelectedCourse from './interfaces/SelectedCourse';
 import CourseSelection from './selectedcourselist/CourseSelection';
 import Gpa from './uicrap/Gpa';
 import GradeSelector from './uicrap/GradeSelector';
+import SearchBar from './uicrap/SearchBar';
 
 function App() {
     const [grade, setGrade] = useState<number>(1);
@@ -68,6 +69,7 @@ function App() {
                     <CourseSelection courses={selectedCourses} onDelete={removeSelectedCourse} />
                 </div>
                 <div className="right-side">
+                    <SearchBar />
                     <CourseList list={courseList} onAdd={onAddCourse} />
                 </div>
             </div>

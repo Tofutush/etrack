@@ -10,8 +10,10 @@ type SelectedCourseCardProps = {
 function SelectedCourseCard({ course, onDelete }: SelectedCourseCardProps) {
     return (
         <div className="chosen-course">
-            <button onClick={() => onDelete(course)}>X</button>
-            <p>{course.name}</p>
+            <div>
+                <button onClick={() => onDelete(course)}>X</button>
+                <div>{course.name}</div>
+            </div>
             <select defaultValue={course.letterGrade}>
                 <option>A</option>
                 <option>B</option>

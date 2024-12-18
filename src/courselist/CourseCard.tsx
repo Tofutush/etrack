@@ -10,8 +10,8 @@ type CourseCardProps = {
 function CourseCard({ course, children }: CourseCardProps) {
     let gradesElt = course.grades.map(g => <div key={g} className="grade">{g}</div>);
     return (
-        <div className="course">
-            <h1>{course.name}</h1>
+        <div className="course graybox">
+            <h2>{course.name}</h2>
             <div>{gradesElt}</div>
             <div>{course.gpa}</div>
             {children}

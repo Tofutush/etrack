@@ -13,7 +13,9 @@ function CourseSelection({ courses, onDelete }: CourseSelectionProps) {
     return (
         <div id="search-bar" className="graybox">
             <div>你的选择</div>
-            {selectedCourses}
+            <div className="selected-courses">
+                {selectedCourses}
+            </div>
         </div>
     )
 }

@@ -11,7 +11,7 @@ function SelectedCourseCard({ course, onDelete }: SelectedCourseCardProps) {
 	return (
 		<div className="chosen-course flex space-between align-center">
 			<div className="flex align-center">
-				<button className="graybutton" onClick={() => onDelete(course)}>x</button>
+				<button className="graybutton" onClick={() => onDelete(course)}>&times;</button>
 				<div>{course.name}</div>
 			</div>
 			<select className="graybutton" defaultValue={course.letterGrade}>

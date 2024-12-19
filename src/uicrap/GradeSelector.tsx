@@ -12,6 +12,8 @@ function GradeSelector({ onChange }: GradeSelectorProps) {
                 <option value="1">高一</option>
                 <option value="2">高二</option>
                 <option value="3">高三</option>
+                <option value="1,2">高一 & 高二</option>
+                <option value="1,2,3">高一 & 高二 & 高三</option>
             </select>
         </div>
     )

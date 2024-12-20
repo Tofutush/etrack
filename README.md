@@ -1,3 +1,9 @@
+# todo
+
+- update gpa on lettergrade change
+- search
+- courselistcard styling
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

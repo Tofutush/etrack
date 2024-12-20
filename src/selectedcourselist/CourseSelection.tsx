@@ -1,19 +1,27 @@
 import SelectedCourse from '../interfaces/SelectedCourse';
+import RequiredCourseCard from './RequiredCourseCard';
 import SelectedCourseCard from "./SelectedCourseCard";
 
 // the thing off to the left showing a list of the courses youve selected
 
 type CourseSelectionProps = {
     courses: Array<SelectedCourse>,
+    required: Array<SelectedCourse>,
     onDelete: (course: SelectedCourse) => void;
 }
 
-function CourseSelection({ courses, onDelete }: CourseSelectionProps) {
+function CourseSelection({ courses, required, onDelete }: CourseSelectionProps) {
+    let requiredCourses = required.map(c => <RequiredCourseCard key={c.name} course={c} />);
     let selectedCourses = courses.map(c => <SelectedCourseCard key={c.name} course={c} onDelete={onDelete} />);
     return (
-        <div id="search-bar" className="graybox">
+        <div id="search-bar" className="graybox flex f-col gap">
             <div>你的选择</div>
-            <div className="selected-courses">
+            <div className="subtitle">必修</div>
+            <div className="flex f-col gap">
+                {requiredCourses}
+            </div>
+            <div className="subtitle">选修</div>
+            <div className="flex f-col gap">
                 {selectedCourses}
             </div>
         </div>

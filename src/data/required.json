@@ -1,0 +1,37 @@
+[
+    {
+        "name": "required1",
+        "grades": [
+            1
+        ],
+        "gpa": 5
+    },
+    {
+        "name": "required2",
+        "grades": [
+            2
+        ],
+        "gpa": 4
+    },
+    {
+        "name": "required3",
+        "grades": [
+            3
+        ],
+        "gpa": 4.5
+    },
+    {
+        "name": "required4",
+        "grades": [
+            1
+        ],
+        "gpa": 4.25
+    },
+    {
+        "name": "required5",
+        "grades": [
+            2
+        ],
+        "gpa": 5
+    }
+]

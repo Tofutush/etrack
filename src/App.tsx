@@ -1,23 +1,29 @@
 import { useEffect, useState } from 'react';
 import CourseList from './courselist/CourseList';
-import courseData from './data.json';
+import courseData from './data/selective.json';
 import Course from './interfaces/Course';
 import SelectedCourse from './interfaces/SelectedCourse';
 import CourseSelection from './selectedcourselist/CourseSelection';
 import Gpa from './uicrap/Gpa';
-import SearchBar from './uicrap/SearchBar';
 import GradeSelector from './uicrap/GradeSelector';
+import SearchBar from './uicrap/SearchBar';
+import requiredCourseData from './data/required.json';
+import createSelectedCourse from './createSelectedCourse';
 
 function App() {
-    const [grade, setGrade] = useState<Array<number>>([1]);
-    const [gpa, setGpa] = useState<number>(0);
+    // const [grade, setGrade] = useState<Array<number>>([1]);
+    // const [gpa, setGpa] = useState<number>(0);
+    let gpa: number = 0;
     const [courseList, setCourseList] = useState<Array<Course>>(courseData.filter(c => c.grades.includes(1)));
     const [selectedCourses, setSelectedCourses] = useState<Array<SelectedCourse>>([]);
+    const [requiredCourses, setRequiredCourses] = useState<Array<SelectedCourse>>(requiredCourseData.filter(c => c.grades.includes(1)).map(c => createSelectedCourse(c)));
 
-    function onGradeChange(event: React.ChangeEvent<HTMLSelectElement>) {
-        // when grade changes, we'll just keep the courses that are offered in this grade and filter out the others
-        let grade = event.target.value.split('').map(n => parseInt(n));
-        setGrade(grade);
+    function onGradeChange(grade: Array<number>) {
+        // let grade = event.target.value.split('').map(n => parseInt(n));
+        // setGrade(grade);
+        setSelectedCourses(selectedCourses.filter(c => c.grades.some(g => grade.includes(g))));
+        setCourseList(courseData.filter(c => c.grades.some(g => grade.includes(g) && selectedCourses.every(sc => sc.name !== c.name))));
+        setRequiredCourses(requiredCourseData.filter(c => c.grades.some(g => grade.includes(g))).map(c => createSelectedCourse(c)));
     }
 
     function onAddCourse(course: SelectedCourse) {
@@ -27,17 +33,6 @@ function App() {
             setCourseList(deleteCourseFromCourseList(course));
         }
     }
-
-    // when selected courses is changed, change gpa
-    useEffect(() => calculateGpa(), [selectedCourses]);
-
-    // when grade changes, filter out not these grades from the selected list
-    useEffect(() => setSelectedCourses(selectedCourses.filter(c => c.grades.some(g => grade.includes(g)))), [grade]);
-    // do the same with the course list
-    useEffect(() => setCourseList(courseList.filter(c => c.grades.some(g => grade.includes(g)))), [grade]);
-
-    // when selected courses changes, filter out the selected from the course list
-    useEffect(() => setCourseList(courseList.filter(c => selectedCourses.every(sc => sc.name !== c.name))), [selectedCourses]);
 
     function deleteCourseFromCourseList(course: SelectedCourse) {
         // delete a specific course from the list, matched by name
@@ -56,12 +51,42 @@ function App() {
     }
 
     function calculateGpa() {
-        let gpa = 0;
+        let newgpa = 0;
         for (let z = 0; z < selectedCourses.length; z++) {
-            gpa += selectedCourses[z].gpa;
+            console.log(selectedCourses[z]);
+
+            switch (selectedCourses[z].letterGrade) {
+                case 'A':
+                    newgpa += 100;
+                    break;
+                case 'B':
+                    newgpa += 10;
+                    break;
+                case 'C':
+                    newgpa += 1;
+                    break;
+                default:
+                    throw new Error(`oops, grade ${selectedCourses[z].letterGrade} doesnt exist!`);
+            }
         }
-        setGpa(gpa);
+        for (let z = 0; z < requiredCourses.length; z++) {
+            switch (requiredCourses[z].letterGrade) {
+                case 'A':
+                    newgpa += 100;
+                    break;
+                case 'B':
+                    newgpa += 10;
+                    break;
+                case 'C':
+                    newgpa += 1;
+                    break;
+                default:
+                    throw new Error(`oops, grade ${requiredCourses[z].letterGrade} doesnt exist!`);
+            }
+        }
+        gpa = newgpa;
     }
+    calculateGpa();
 
     return (
         <>
@@ -73,7 +98,7 @@ function App() {
                 <div className="left-side flex f-col gap">
                     <Gpa value={gpa} />
                     <GradeSelector onChange={onGradeChange} />
-                    <CourseSelection courses={selectedCourses} onDelete={removeSelectedCourse} />
+                    <CourseSelection courses={selectedCourses} required={requiredCourses} onDelete={removeSelectedCourse} />
                 </div>
                 <div className="right-side flex f-col gap f-1">
                     <SearchBar />

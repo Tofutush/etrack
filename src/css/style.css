@@ -16,7 +16,6 @@ body {
 
 .flex {
 	display: flex;
-	gap: 1em;
 }
 
 .gap {
@@ -35,6 +34,12 @@ body {
 	flex: 1;
 }
 
+.subtitle {
+    font-size: smaller;
+    font-weight: bold;
+    text-indent: 1em;
+}
+
 .align-center {
 	align-items: center;
 }
@@ -48,11 +53,12 @@ body {
 .graybutton {
 	background-color: #0001;
 	font-family: montserrat, lxgw;
-	font-size: 24px;
+	font-size: 16px;
 	border: 0;
 	padding: 8px 12px;
 	border-radius: 8px;
 	cursor: pointer;
+    user-select: none;
 }
 
 .graybutton:hover {
@@ -66,10 +72,6 @@ body {
 .course-list {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-}
-
-.selected-courses {
-	margin-top: 1em;
 }
 
 .chosen-course>div:first-child {

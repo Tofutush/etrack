@@ -1,8 +1,11 @@
 # todo
 
-- update gpa on lettergrade change
-- search
-- courselistcard styling
+- [ ] update gpa on lettergrade change
+- [ ] search
+- [ ] courselistcard styling
+- [ ] wait for tris to complete data files
+- [ ] find successor
+- [ ] instructions (& docs?) for successor
 
 # React + TypeScript + Vite
 

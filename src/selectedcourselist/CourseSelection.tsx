@@ -1,6 +1,6 @@
 import SelectedCourse from '../interfaces/SelectedCourse';
+import OptionalCourseCard from './OptionalCourseCard';
 import RequiredCourseCard from './RequiredCourseCard';
-import SelectedCourseCard from "./SelectedCourseCard";
 
 // the thing off to the left showing a list of the courses youve selected
 
@@ -12,7 +12,7 @@ type CourseSelectionProps = {
 
 function CourseSelection({ courses, required, onDelete }: CourseSelectionProps) {
     let requiredCourses = required.map(c => <RequiredCourseCard key={c.name} course={c} />);
-    let selectedCourses = courses.map(c => <SelectedCourseCard key={c.name} course={c} onDelete={onDelete} />);
+    let selectedCourses = courses.map(c => <OptionalCourseCard key={c.name} course={c} onDelete={onDelete} />);
     return (
         <div id="search-bar" className="graybox flex f-col gap">
             <div>你的选择</div>

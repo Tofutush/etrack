@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import CourseList from './courselist/CourseList';
 import courseData from './data/selective.json';
 import Course from './interfaces/Course';

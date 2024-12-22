@@ -10,7 +10,6 @@
     - [（你的鬼魂）还要下什么呢](#你的鬼魂还要下什么呢)
     - [然后呢](#然后呢)
 
-
 # todo
 
 - [x] update gpa on lettergrade change

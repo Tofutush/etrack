@@ -28,7 +28,7 @@
 
 分别在这里：[`required.json`](/src/data/required.json), [`selective.json`](/src/data/selective.json)。
 
-俩文件结构是一模一样的，`required.json` 放选修，`selective.json` 放必修。
+俩文件结构是一模一样的，`required.json` 放必修，`selective.json` 放选修。
 
 你可以网上找一些可视化 JSON 编辑器（"json visual editor" 直接粘进谷歌随便点开一个），文件下载下来，传到你点开的网站上，编辑完从网站上导出，然后点开编辑，粘贴进去，点 commit，写一个 commit message（写认真点，不要像我一样烂写），大功告成。
 
@@ -41,12 +41,11 @@
 ```json
 {
     "name": "名字。确保别重名，我在程序里要用这个识别课程的，虽然这么做不太好但我懒得管",
-    "grades": [
+    "grades": [ 课是几年级上的。高一高二高三。
         1,
         2,
         3
-        // 课是几年级上的。高一高二高三。
-    ]，
+    ],
     "gpa": 满绩。数字。别打双引号。
 }
 ```

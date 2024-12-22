@@ -1,60 +1,87 @@
+- [todo](#todo)
+- [全体目光向我看齐，我宣布个事儿](#全体目光向我看齐我宣布个事儿)
+  - [怎么编辑数据文件](#怎么编辑数据文件)
+  - [`required.json` 和 `selective.json` 结构](#requiredjson-和-selectivejson-结构)
+    - [怎么硬敲](#怎么硬敲)
+- [开发环境](#开发环境)
+  - [还想学？](#还想学)
+    - [我不想下 VSCode](#我不想下-vscode)
+    - [我有更好的编辑器啊我还花钱买了的](#我有更好的编辑器啊我还花钱买了的)
+    - [（你的鬼魂）还要下什么呢](#你的鬼魂还要下什么呢)
+    - [然后呢](#然后呢)
+
+
 # todo
 
 - [x] update gpa on lettergrade change
-- [ ] search
-- [ ] courselistcard styling
+- [ ] ~~search~~ gave up
 - [ ] wait for tris to complete data files
-  - [ ] testing
+  - [ ] courselistcard styling
+    - [ ] testing
 - [ ] find successor
 - [ ] instructions (& docs?) for successor
 
-# React + TypeScript + Vite
+# 全体目光向我看齐，我宣布个事儿
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 怎么编辑数据文件
 
-Currently, two official plugins are available:
+## `required.json` 和 `selective.json` 结构
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+分别在这里：[`required.json`](/src/data/required.json), [`selective.json`](/src/data/selective.json)。
 
-## Expanding the ESLint configuration
+俩文件结构是一模一样的，`required.json` 放选修，`selective.json` 放必修。
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+你可以网上找一些可视化 JSON 编辑器（"json visual editor" 直接粘进谷歌随便点开一个），文件下载下来，传到你点开的网站上，编辑完从网站上导出，然后点开编辑，粘贴进去，点 commit，写一个 commit message（写认真点，不要像我一样烂写），大功告成。
 
-- Configure the top-level `parserOptions` property like this:
+或者你可以自己硬敲，敲出问题我就把你打死，没啥大不了的。
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 怎么硬敲
+
+第一行和最后一行的中括号 `[]` 是一个列表的意思，中间每一个用大括号 `{}` 括起来的就是一个课程。
+
+```json
+{
+    "name": "名字。确保别重名，我在程序里要用这个识别课程的，虽然这么做不太好但我懒得管",
+    "grades": [
+        1,
+        2,
+        3
+        // 课是几年级上的。高一高二高三。
+    ]，
+    "gpa": 满绩。数字。别打双引号。
+}
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+“不是吸螺壳你咋写得这么水啊我看不懂啊”闭嘴老子没写完
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+# 开发环境
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+哈哈哈哈哈哈哈哈傻逼别在这里杵着去学点有用的东西吧比如线性代数是吧哈哈哈哈哈哈哈哈
+
+## 还想学？
+
+OK，拦不住的大小姐，去下个 VSCode 吧。
+
+### 我不想下 VSCode
+
+（拿枪指着你脑袋）下 VSCode。
+
+### 我有更好的编辑器啊我还花钱买了的
+
+副歌（开枪然后抢走你的财产从此做一个不愁钱的法外狂徒）
+
+### （你的鬼魂）还要下什么呢
+
+Nodejs、Git。
+
+### 然后呢
+
+`git clone https://github.com/Tofutush/etrack.git`
+
+一定要下 cnpm！！！不然你会后悔！！！
+
+`npm i -g cnpm`
+
+以后所有东西都用 cnpm 做
+
+`cnpm i`

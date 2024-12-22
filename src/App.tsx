@@ -4,12 +4,11 @@ import createSelectedCourse from './createSelectedCourse';
 import requiredCourseData from './data/required.json';
 import courseData from './data/selective.json';
 import Course from './interfaces/Course';
+import letterGrade from './interfaces/letterGrade';
 import SelectedCourse from './interfaces/SelectedCourse';
 import CourseSelection from './selectedcourselist/CourseSelection';
 import Gpa from './uicrap/Gpa';
 import GradeSelector from './uicrap/GradeSelector';
-import SearchBar from './uicrap/SearchBar';
-import letterGrade from './interfaces/letterGrade';
 
 function App() {
     // const [grade, setGrade] = useState<Array<number>>([1]);
@@ -118,7 +117,7 @@ function App() {
                     <CourseSelection courses={selectedCourses} required={requiredCourses} onDelete={removeSelectedCourse} onChangeOptional={onLetterGradeChangeOptional} onChangeRequired={onLetterGradeChangeRequired} />
                 </div>
                 <div className="right-side flex f-col gap f-1">
-                    <SearchBar />
+                    <div>添加课程</div>
                     <CourseList list={courseList} onAdd={onAddCourse} />
                 </div>
             </div>

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import CourseList from './courselist/CourseList';
+import createSelectedCourse from './createSelectedCourse';
+import requiredCourseData from './data/required.json';
 import courseData from './data/selective.json';
 import Course from './interfaces/Course';
 import SelectedCourse from './interfaces/SelectedCourse';
@@ -7,8 +9,7 @@ import CourseSelection from './selectedcourselist/CourseSelection';
 import Gpa from './uicrap/Gpa';
 import GradeSelector from './uicrap/GradeSelector';
 import SearchBar from './uicrap/SearchBar';
-import requiredCourseData from './data/required.json';
-import createSelectedCourse from './createSelectedCourse';
+import letterGrade from './interfaces/letterGrade';
 
 function App() {
     // const [grade, setGrade] = useState<Array<number>>([1]);
@@ -34,6 +35,18 @@ function App() {
         }
     }
 
+    function onLetterGradeChangeOptional(course: SelectedCourse, letterGrade: letterGrade) {
+        setSelectedCourses(prev => {
+            return prev.map(c => (c.name === course.name) ? { ...c, letterGrade: letterGrade } : c);
+        })
+    }
+
+    function onLetterGradeChangeRequired(course: SelectedCourse, letterGrade: letterGrade) {
+        setRequiredCourses(prev => {
+            return prev.map(c => (c.name === course.name) ? { ...c, letterGrade: letterGrade } : c);
+        })
+    }
+
     function deleteCourseFromCourseList(course: SelectedCourse) {
         // delete a specific course from the list, matched by name
         return courseList.filter(c => c.name !== course.name);
@@ -53,8 +66,6 @@ function App() {
     function calculateGpa() {
         let newgpa = 0;
         for (let z = 0; z < selectedCourses.length; z++) {
-            console.log(selectedCourses[z]);
-
             switch (selectedCourses[z].letterGrade) {
                 case 'A':
                     newgpa += 100;
@@ -64,6 +75,9 @@ function App() {
                     break;
                 case 'C':
                     newgpa += 1;
+                    break;
+                case 'D':
+                    newgpa += 1000;
                     break;
                 default:
                     throw new Error(`oops, grade ${selectedCourses[z].letterGrade} doesnt exist!`);
@@ -79,6 +93,9 @@ function App() {
                     break;
                 case 'C':
                     newgpa += 1;
+                    break;
+                case 'D':
+                    newgpa += 1000;
                     break;
                 default:
                     throw new Error(`oops, grade ${requiredCourses[z].letterGrade} doesnt exist!`);
@@ -98,7 +115,7 @@ function App() {
                 <div className="left-side flex f-col gap">
                     <Gpa value={gpa} />
                     <GradeSelector onChange={onGradeChange} />
-                    <CourseSelection courses={selectedCourses} required={requiredCourses} onDelete={removeSelectedCourse} />
+                    <CourseSelection courses={selectedCourses} required={requiredCourses} onDelete={removeSelectedCourse} onChangeOptional={onLetterGradeChangeOptional} onChangeRequired={onLetterGradeChangeRequired} />
                 </div>
                 <div className="right-side flex f-col gap f-1">
                     <SearchBar />

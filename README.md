@@ -1,9 +1,10 @@
 # todo
 
-- [ ] update gpa on lettergrade change
+- [x] update gpa on lettergrade change
 - [ ] search
 - [ ] courselistcard styling
 - [ ] wait for tris to complete data files
+  - [ ] testing
 - [ ] find successor
 - [ ] instructions (& docs?) for successor
 

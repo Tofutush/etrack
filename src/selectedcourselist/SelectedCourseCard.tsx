@@ -1,14 +1,16 @@
+import letterGrade from "../interfaces/letterGrade";
 import SelectedCourse from "../interfaces/SelectedCourse";
 
 // one strip of a course
 
 type SelectedCourseCardProps = {
     course: SelectedCourse,
+    onChange: (course: SelectedCourse, letterGrade: letterGrade) => void,
     optional?: boolean,
     onDelete: (course: SelectedCourse) => void
 }
 
-function SelectedCourseCard({ course, optional, onDelete }: SelectedCourseCardProps) {
+function SelectedCourseCard({ course, onChange, optional, onDelete }: SelectedCourseCardProps) {
     return (
         <div className="chosen-course flex space-between align-center">
             {optional ?
@@ -19,10 +21,11 @@ function SelectedCourseCard({ course, optional, onDelete }: SelectedCourseCardPr
                 :
                 <div>{course.name}</div>
             }
-            <select className="graybutton" defaultValue={course.letterGrade}>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
+            <select className="graybutton" defaultValue={course.letterGrade} onChange={e => onChange(course, e.target.value as letterGrade)}>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
             </select>
         </div>
     )

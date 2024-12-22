@@ -1,7 +1,8 @@
 import Course from './Course';
+import letterGrade from './letterGrade';
 
 interface SelectedCourse extends Course {
-    letterGrade: 'A' | 'B' | 'C';
+    letterGrade: letterGrade;
 }
 
 export default SelectedCourse;

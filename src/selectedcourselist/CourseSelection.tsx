@@ -1,3 +1,4 @@
+import letterGrade from '../interfaces/letterGrade';
 import SelectedCourse from '../interfaces/SelectedCourse';
 import OptionalCourseCard from './OptionalCourseCard';
 import RequiredCourseCard from './RequiredCourseCard';
@@ -7,12 +8,14 @@ import RequiredCourseCard from './RequiredCourseCard';
 type CourseSelectionProps = {
     courses: Array<SelectedCourse>,
     required: Array<SelectedCourse>,
-    onDelete: (course: SelectedCourse) => void;
+    onDelete: (course: SelectedCourse) => void,
+    onChangeOptional: (course: SelectedCourse, letterGrade: letterGrade) => void,
+    onChangeRequired: (course: SelectedCourse, letterGrade: letterGrade) => void
 }
 
-function CourseSelection({ courses, required, onDelete }: CourseSelectionProps) {
-    let requiredCourses = required.map(c => <RequiredCourseCard key={c.name} course={c} />);
-    let selectedCourses = courses.map(c => <OptionalCourseCard key={c.name} course={c} onDelete={onDelete} />);
+function CourseSelection({ courses, required, onDelete, onChangeOptional, onChangeRequired }: CourseSelectionProps) {
+    let requiredCourses = required.map(c => <RequiredCourseCard key={c.name} course={c} onChange={onChangeRequired} />);
+    let selectedCourses = courses.map(c => <OptionalCourseCard key={c.name} course={c} onDelete={onDelete} onChange={onChangeOptional} />);
     return (
         <div id="search-bar" className="graybox flex f-col gap">
             <div>你的选择</div>

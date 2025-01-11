@@ -63,44 +63,10 @@ function App() {
     }
 
     function calculateGpa() {
-        let newgpa = 0;
-        for (let z = 0; z < selectedCourses.length; z++) {
-            switch (selectedCourses[z].letterGrade) {
-                case 'A':
-                    newgpa += 100;
-                    break;
-                case 'B':
-                    newgpa += 10;
-                    break;
-                case 'C':
-                    newgpa += 1;
-                    break;
-                case 'D':
-                    newgpa += 1000;
-                    break;
-                default:
-                    throw new Error(`oops, grade ${selectedCourses[z].letterGrade} doesnt exist!`);
-            }
-        }
-        for (let z = 0; z < requiredCourses.length; z++) {
-            switch (requiredCourses[z].letterGrade) {
-                case 'A':
-                    newgpa += 100;
-                    break;
-                case 'B':
-                    newgpa += 10;
-                    break;
-                case 'C':
-                    newgpa += 1;
-                    break;
-                case 'D':
-                    newgpa += 1000;
-                    break;
-                default:
-                    throw new Error(`oops, grade ${requiredCourses[z].letterGrade} doesnt exist!`);
-            }
-        }
-        gpa = newgpa;
+        const gradePoints: { [key: string]: number } = { 'A': 100, 'B': 10, 'C': 1, 'D': 0, 'F': -1 };
+        const allCourses = [...selectedCourses, ...requiredCourses];
+        const totalPoints = allCourses.reduce((acc, course) => acc + (gradePoints[course.letterGrade] || 0), 0);
+        return totalPoints / allCourses.length;
     }
     calculateGpa();
 

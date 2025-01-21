@@ -6,9 +6,9 @@ type GradeSelectorProps = {
 
 function GradeSelector({ onChange }: GradeSelectorProps) {
     return (
-        <div className="graybox grade-selector flex space-between">
+        <div className="graybox grade-selector flex space-between align-center">
             <div>年级</div>
-            <select name="grade" defaultValue="1" onChange={e => onChange(e.target.value.split(',').map(n => parseInt(n)))}>
+            <select name="grade" className="graybutton" defaultValue="1" onChange={e => onChange(e.target.value.split(',').map(n => parseInt(n)))}>
                 <option value="1">高一</option>
                 <option value="2">高二</option>
                 <option value="3">高三</option>

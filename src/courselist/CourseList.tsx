@@ -13,7 +13,7 @@ type CourseListProps = {
 function CourseList({ list, onAdd }: CourseListProps) {
     const cards = list.map(course =>
         <CourseCard key={course.name} course={course}>
-            <button onClick={() => onAdd(createSelectedCourse(course))}>Add</button>
+            <button className='graybutton' onClick={() => onAdd(createSelectedCourse(course))}>Add</button>
         </CourseCard >
     )
     return (

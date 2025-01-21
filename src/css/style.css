@@ -12,6 +12,7 @@ body {
 	font-family: montserrat, lxgw;
 	font-size: 24px;
 	margin: 1em 3em;
+	background-color: #0001;
 }
 
 .flex {
@@ -45,7 +46,7 @@ body {
 }
 
 .graybox {
-	background-color: #0001;
+	background-color: #fff;
 	border-radius: 12px;
 	padding: 1em 1.5em;
 }

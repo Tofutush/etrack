@@ -9,7 +9,7 @@ import SelectedCourse from './interfaces/SelectedCourse';
 import CourseSelection from './selectedcourselist/CourseSelection';
 import Gpa from './uicrap/Gpa';
 import GradeSelector from './uicrap/GradeSelector';
-import Credits from './uicrap/credits';
+import Footer from './uicrap/Footer';
 
 function App() {
     // const [grade, setGrade] = useState<Array<number>>([1]);
@@ -88,9 +88,7 @@ function App() {
                     <CourseList list={courseList} onAdd={onAddCourse} />
                 </div>
             </div>
-            <footer>
-                <Credits />
-            </footer>
+            <Footer />
         </>
     )
 }

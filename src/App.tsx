@@ -69,7 +69,7 @@ function App() {
         const totalPoints = allCourses.reduce((acc, course) => acc + (gradePoints[course.letterGrade] || 0), 0);
         return totalPoints / allCourses.length;
     }
-    calculateGpa();
+    gpa = parseFloat(calculateGpa().toFixed(2));
 
     return (
         <>

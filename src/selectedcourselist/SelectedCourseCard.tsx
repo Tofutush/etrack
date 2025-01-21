@@ -12,7 +12,7 @@ type SelectedCourseCardProps = {
 
 function SelectedCourseCard({ course, onChange, optional, onDelete }: SelectedCourseCardProps) {
     return (
-        <div className="chosen-course flex space-between align-center">
+        <div className="chosen-course row-stuff">
             {optional ?
                 <div className="flex align-center">
                     <button className="graybutton" onClick={() => onDelete(course)}>&times;</button>

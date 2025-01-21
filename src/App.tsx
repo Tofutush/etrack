@@ -72,20 +72,20 @@ function App() {
 
     return (
         <>
-            <div className="flex gap align-center">
+            <header className="flex-gap">
                 <h1>ETrack GPA</h1>
                 <p>欢迎使用 ETrack GPA 预估计算器</p>
-            </div>
-            <div className="flex gap">
-                <div className="left-side flex f-col gap">
+            </header>
+            <div className="flex-gap">
+                <div className="left-side flex-gap f-col">
                     <Gpa value={gpa} />
                     <GradeSelector onChange={onGradeChange} />
                     <CourseSelection courses={selectedCourses} required={requiredCourses} onDelete={removeSelectedCourse} onChangeOptional={onLetterGradeChangeOptional} onChangeRequired={onLetterGradeChangeRequired} />
                 </div>
-                <div className="right-side flex f-col gap f-1">
-                    <div>添加课程</div>
+                <footer className="right-side flex-gap f-col">
+                    <h3>添加课程</h3>
                     <CourseList list={courseList} onAdd={onAddCourse} />
-                </div>
+                </footer>
             </div>
         </>
     )

@@ -15,11 +15,19 @@ body {
 	background-color: #0001;
 }
 
-.flex {
-	display: flex;
+header {
+	align-items: baseline;
 }
 
-.gap {
+.row-stuff {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.flex-gap {
+	display: flex;
+	flex-wrap: wrap;
 	gap: 1em;
 }
 

@@ -14,7 +14,7 @@ function SelectedCourseCard({ course, onChange, optional, onDelete }: SelectedCo
     return (
         <div className="chosen-course row-stuff">
             {optional ?
-                <div className="flex align-center">
+                <div className="row-stuff">
                     <button className="graybutton" onClick={() => onDelete(course)}>&times;</button>
                     <div>{course.name}</div>
                 </div>

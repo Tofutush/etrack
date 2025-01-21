@@ -17,14 +17,14 @@ function CourseSelection({ courses, required, onDelete, onChangeOptional, onChan
     let requiredCourses = required.map(c => <RequiredCourseCard key={c.name} course={c} onChange={onChangeRequired} />);
     let selectedCourses = courses.map(c => <OptionalCourseCard key={c.name} course={c} onDelete={onDelete} onChange={onChangeOptional} />);
     return (
-        <div id="search-bar" className="graybox flex f-col gap">
+        <div className="col-stuff graybox">
             <div>你的选择</div>
             <div className="subtitle">必修</div>
-            <div className="flex f-col gap">
+            <div className="col-stuff">
                 {requiredCourses}
             </div>
             <div className="subtitle">选修</div>
-            <div className="flex f-col gap">
+            <div className="col-stuff">
                 {selectedCourses}
             </div>
         </div>

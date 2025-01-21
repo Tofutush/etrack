@@ -9,6 +9,7 @@ import SelectedCourse from './interfaces/SelectedCourse';
 import CourseSelection from './selectedcourselist/CourseSelection';
 import Gpa from './uicrap/Gpa';
 import GradeSelector from './uicrap/GradeSelector';
+import Credits from './uicrap/credits';
 
 function App() {
     // const [grade, setGrade] = useState<Array<number>>([1]);
@@ -72,21 +73,24 @@ function App() {
 
     return (
         <>
-            <header className="flex-gap">
+            <header>
                 <h1>ETrack GPA</h1>
                 <p>欢迎使用 ETrack GPA 预估计算器</p>
             </header>
-            <div className="flex-gap">
-                <div className="left-side flex-gap f-col">
+            <div id="flexbox">
+                <div className="col-stuff">
                     <Gpa value={gpa} />
                     <GradeSelector onChange={onGradeChange} />
                     <CourseSelection courses={selectedCourses} required={requiredCourses} onDelete={removeSelectedCourse} onChangeOptional={onLetterGradeChangeOptional} onChangeRequired={onLetterGradeChangeRequired} />
                 </div>
-                <footer className="right-side flex-gap f-col">
+                <div id="right" className="col-stuff">
                     <h3>添加课程</h3>
                     <CourseList list={courseList} onAdd={onAddCourse} />
-                </footer>
+                </div>
             </div>
+            <footer>
+                <Credits />
+            </footer>
         </>
     )
 }

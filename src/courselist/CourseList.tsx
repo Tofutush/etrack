@@ -17,7 +17,7 @@ function CourseList({ list, onAdd }: CourseListProps) {
         </CourseCard >
     )
     return (
-        <div className="course-list gap">
+        <div className="course-list">
             {cards}
         </div>
     )
